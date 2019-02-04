@@ -1,5 +1,5 @@
 ---
-title: "Journal"
+title: "R Basics"
 output:
   html_document:
     toc: true
@@ -40,5 +40,20 @@ abc <- 8745416786468465646
 
 marsha + abc 
 
+
+cats <- 476 
+dogs <- 8.3 
+
+cats / dogs 
+
+class <- 33 
+teacher <- 87 
+
+class - teacher 
+
+high <- 10246839295 
+low <- 376782853 
+
+high * low 
 ```
 
