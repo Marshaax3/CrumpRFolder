@@ -114,6 +114,37 @@ List all of the odd numbers from 1 to 100.
 
 ```{r}
 
+AllNumbers<-c()
+for(i in 1:100){
+  AllNumbers<-c(AllNumbers,i)
+}
+OddNumbers<-c()
+for (x in AllNumbers)
+  if(x%%2 ==1){
+    OddNumbers<-c(OddNumbers,x)
+    
+  }
+print(OddNumbers)
+```
 
+### Problem 7 
+
+List all of the prime numbers from 1 to 1000. 
+
+```{r}
+
+n <-c(1:1000)
+  PrimeNumbers<-function(n){
+    if(n==2){
+      TRUE
+    } else if (any(n%%2:(n-1)==0)){
+      FALSE
+    } else {
+      TRUE
+    }
+  }
+PrimeNumbers <- Vectorize(PrimeNumbers)
+
+n[PrimeNumbers(n)]
 ```
 
