@@ -568,7 +568,7 @@ print(totalsum)</code></pre>
 <div id="problem-5" class="section level3">
 <h3>Problem 5</h3>
 <p>Write a function to find the sum of all integers between any two values.</p>
-<pre class="r"><code>x&lt;-c(1:100)
+<pre class="r"><code>x&lt;-c(5:250)
 
 SumFun&lt;-function(y){
   sum&lt;-0
@@ -578,7 +578,7 @@ SumFun&lt;-function(y){
 print(sum)
 }
 SumFun(x)</code></pre>
-<pre><code>## [1] 5050</code></pre>
+<pre><code>## [1] 31365</code></pre>
 </div>
 <div id="problem-6" class="section level3">
 <h3>Problem 6</h3>
@@ -672,6 +672,74 @@ n[PrimeNumbers(n)]</code></pre>
 <div id="problem-10" class="section level3">
 <h3>Problem 10</h3>
 <p>Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation</p>
+<p>Mean:</p>
+<pre class="r"><code>meanA &lt;- function(m){ 
+  AllSum&lt;-0
+  for(i in m){
+    AllSum &lt;- AllSum+i
+  }
+return&lt;-c(AllSum/length(m))   
+}
+mean_numbers&lt;-c(1,5,10,15,20)
+
+print(meanA(mean_numbers)) </code></pre>
+<pre><code>## [1] 10.2</code></pre>
+<p>Mode:</p>
+<p>Median:</p>
+<p>Range:</p>
+<p>Standard deviaton:</p>
+</div>
+<div id="problem-11" class="section level3">
+<h3>Problem 11</h3>
+<p>Count the number of characters in a string variable</p>
+<pre class="r"><code>string_a &lt;- &quot;numberofcharactersinastring&quot;
+strsplit(string_a,split=&quot;&quot;)</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;n&quot; &quot;u&quot; &quot;m&quot; &quot;b&quot; &quot;e&quot; &quot;r&quot; &quot;o&quot; &quot;f&quot; &quot;c&quot; &quot;h&quot; &quot;a&quot; &quot;r&quot; &quot;a&quot; &quot;c&quot; &quot;t&quot; &quot;e&quot; &quot;r&quot;
+## [18] &quot;s&quot; &quot;i&quot; &quot;n&quot; &quot;a&quot; &quot;s&quot; &quot;t&quot; &quot;r&quot; &quot;i&quot; &quot;n&quot; &quot;g&quot;</code></pre>
+</div>
+<div id="problem-12" class="section level3">
+<h3>Problem 12</h3>
+<p>Count the number of words in a string variable</p>
+<pre class="r"><code>string_b &lt;- &quot;here is my example sentence that needs to be split up&quot;
+strsplit(string_b,split=&quot; &quot;)</code></pre>
+<pre><code>## [[1]]
+##  [1] &quot;here&quot;     &quot;is&quot;       &quot;my&quot;       &quot;example&quot;  &quot;sentence&quot; &quot;that&quot;    
+##  [7] &quot;needs&quot;    &quot;to&quot;       &quot;be&quot;       &quot;split&quot;    &quot;up&quot;</code></pre>
+</div>
+<div id="problem-13" class="section level3">
+<h3>Problem 13</h3>
+<p>Count the number of sentences in a string variable</p>
+<pre class="r"><code>string_c &lt;- &quot;here is my example sentence . it needs to be split up . i do not know what to write . here is the fourth sentence just because&quot;
+
+strsplit(string_c,split=&quot; . &quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;here is my example sentence&quot;             
+## [2] &quot;it needs to be split up&quot;                 
+## [3] &quot;i do not know what to write&quot;             
+## [4] &quot;here is the fourth sentence just because&quot;</code></pre>
+</div>
+<div id="problem-14" class="section level3">
+<h3>Problem 14</h3>
+<p>Count the number of times a specific character occurs in a string variable</p>
+<pre class="r"><code>string_d &lt;-c(1,4,8,6,3,2,4,6,8,9,6,2,3,6,8,9,5,3,2,3,5,6)
+table(string_d)</code></pre>
+<pre><code>## string_d
+## 1 2 3 4 5 6 8 9 
+## 1 3 4 2 2 5 3 2</code></pre>
+<p>How would you do this without the table function?</p>
+</div>
+<div id="problem-15" class="section level3">
+<h3>Problem 15</h3>
+<p>Do a logical test to see if one word is found within the text of another string variable</p>
+<pre class="r"><code>a &lt;- &quot;we&quot;
+
+b &lt;- &quot;we turn on the computer&quot;
+
+
+# is a in b? 
+a%in%b</code></pre>
+<pre><code>## [1] FALSE</code></pre>
 </div>
 
 

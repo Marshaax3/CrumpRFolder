@@ -96,7 +96,7 @@ Write a function to find the sum of all integers between any two values.
 
 ```{r}
 
-x<-c(1:100)
+x<-c(5:250)
 
 SumFun<-function(y){
   sum<-0
@@ -172,7 +172,105 @@ runif(100, min=0, max=650)
 
 Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation 
 
+Mean:
+
 ```{r}
+
+meanA <- function(m){ 
+  AllSum<-0
+  for(i in m){
+    AllSum <- AllSum+i
+  }
+return<-c(AllSum/length(m))   
+}
+mean_numbers<-c(1,5,10,15,20)
+
+print(meanA(mean_numbers)) 
+```
+
+Mode: 
+
+```{r}
+
+
+```
+
+Median: 
+
+```{r}
+
+```
+
+Range: 
+
+```{r}
+
+```
+
+Standard deviaton: 
+
+```{r}
+
+```
+
+### Problem 11 
+
+Count the number of characters in a string variable 
+
+```{r}
+
+string_a <- "numberofcharactersinastring"
+strsplit(string_a,split="")
+```
+
+### Problem 12 
+
+Count the number of words in a string variable 
+
+```{r}
+string_b <- "here is my example sentence that needs to be split up"
+strsplit(string_b,split=" ")
+```
+
+### Problem 13 
+
+Count the number of sentences in a string variable 
+
+```{r}
+
+string_c <- "here is my example sentence . it needs to be split up . i do not know what to write . here is the fourth sentence just because"
+
+strsplit(string_c,split=" . ")
+```
+
+### Problem 14 
+
+Count the number of times a specific character occurs in a string variable 
+```{r}
+
+string_d <-c(1,4,8,6,3,2,4,6,8,9,6,2,3,6,8,9,5,3,2,3,5,6)
+table(string_d)
+```
+
+How would you do this without the table function? 
+
+```{r}
+
+```
+
+### Problem 15 
+
+Do a logical test to see if one word is found within the text of another string variable 
+
+```{r}
+
+a <- "we"
+
+b <- "we turn on the computer"
+
+
+# is a in b? 
+a%in%b
 
 
 ```
