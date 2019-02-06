@@ -148,3 +148,32 @@ PrimeNumbers <- Vectorize(PrimeNumbers)
 n[PrimeNumbers(n)]
 ```
 
+### Problem 8 
+
+Generate 100 random numbers 
+
+```{r}
+
+runif(100) 
+
+```
+
+### Problem 9 
+
+Generate 100 random numbers within a specific range 
+
+```{r}
+
+runif(100, min=0, max=650) 
+
+```
+
+### Problem 10 
+
+Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation 
+
+```{r}
+
+
+```
+
