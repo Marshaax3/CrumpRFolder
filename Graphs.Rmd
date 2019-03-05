@@ -1,0 +1,93 @@
+---
+title: "Graphs"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
+```
+
+Reproducing figures presented in journal articles 
+
+
+## Line Graph 
+
+```{r}
+Names <- rep(c("Dara","Azalea","Barbi","Rowena","Fiona"),each=2)
+MF <- c(62,58,55,25,43,2,40,6,12,0) 
+Condition <- rep(c("Social","Nonsocial"),5)
+Aversity <- rep(c("A","N_A"),times=c(4,6))
+plot_df<- data.frame(Names, MF, Condition) 
+
+library(ggplot2)
+ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
+                    linetype=Aversity))+ 
+  geom_line()+
+  geom_text(label=Names)+
+  ggtitle("Mean Risky Choices in Social and Nonsocial Conditions")+
+  theme_classic()+
+    theme(plot.title=element_text(hjust=0.5))
+
+```
+
+## Bar Graph 
+
+```{r}
+occupation <- rep(as.factor(c("Doctor","Butcher","Firefighter","Construction Worker")),each=3)
+occupation <- factor(occupation,levels=occupation[c(1,4,7,10)])
+Likelihood <- rep(c("Woman More Likely", "Equally Likely", "Man More Likely"),times=4)
+Likelihood <- factor(Likelihood,levels=Likelihood[c(1,2,3)])
+
+means <- c(0,92,8,3,65,32,1,60,39,3,58,39)
+means_df <- data.frame(occupation,Likelihood,means)
+
+library(ggplot2)
+ggplot(means_df, aes(x=occupation, y=means, group=Likelihood, fill=Likelihood))+
+  geom_bar(stat="identity")+
+  scale_fill_manual(values=c("#E37B71","#58AD58","#7595C7"))+
+  scale_x_discrete(breaks=c("Doctor",
+                            "Butcher",
+                            "Firefighter",
+                            "Construction Worker"),
+                  labels=c("Doctor\nStudy 1\nN = 199",
+                            "Butcher\nStudy 2\nn = 200",
+                            "Firefighter\nStudy 2\nn = 200",
+                            "Construction Worker\nStudy 2\nn = 205"))+
+  scale_y_continuous(breaks=c(seq(0, 100, 10)),
+                     labels=c("0%","10%","20%","30%","40%","50%","60%","70%","80%","90%","100%"),
+                     limits=c(0,100),
+                     expand = c(0, 0))+
+  theme_classic(base_size=12)+
+  labs(x=" ", y="Percentage of Participants")
+
+```
+
+## Bar Graph with Error Bars 
+
+```{r}
+Group <- rep(c("Prior","Model Posterior","Reported Posterior"),times=2)
+Group <- factor(Group, levels=Group[c(1,2,3)])
+group2 <- rep(factor(c("Group 1","Group 2")),each=3)
+scores <- c(68,89,87,30,70,77)
+SE <- rep(4,6)
+new_df <- data.frame(Group,group2,scores,SE)
+
+library(ggplot2)
+ggplot(new_df, aes(x=group2, y=scores, fill=Group))+
+  geom_bar(stat="identity",position="dodge")+
+  geom_errorbar(aes(ymin=scores-SE,
+                    ymax=scores+SE),
+                position=position_dodge(width=0.9),
+                width=.2,
+                color="black")+
+  labs(x=" ",y="P(Target=Doctor")+
+  theme_classic(base_size=12)
+```
+

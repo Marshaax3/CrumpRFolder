@@ -1,5 +1,5 @@
 ---
-title: "MyLabJournal"
+title: "Marsha Learns R"
 output: html_document
 ---
 
@@ -17,7 +17,7 @@ output: html_document
 <div class="row" style="padding-top: 30px;">
 <div class="col-sm-6">
 
-# **My Lab Journal**
+# **Marsha Learns R**
 
 Here's my example of making a change and adding it to the live website 
 

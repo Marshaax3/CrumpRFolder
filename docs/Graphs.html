@@ -11,7 +11,7 @@
 
 
 
-<title>Marsha Learns R</title>
+<title>Graphs</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -264,6 +267,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -305,40 +403,86 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Marsha Learns R</h1>
+<h1 class="title toc-ignore">Graphs</h1>
 
 </div>
 
 
-<style type="text/css">
-.title {
-  display: none;
-}
+<p>Reproducing figures presented in journal articles</p>
+<div id="line-graph" class="section level2">
+<h2>Line Graph</h2>
+<pre class="r"><code>Names &lt;- rep(c(&quot;Dara&quot;,&quot;Azalea&quot;,&quot;Barbi&quot;,&quot;Rowena&quot;,&quot;Fiona&quot;),each=2)
+MF &lt;- c(62,58,55,25,43,2,40,6,12,0) 
+Condition &lt;- rep(c(&quot;Social&quot;,&quot;Nonsocial&quot;),5)
+Aversity &lt;- rep(c(&quot;A&quot;,&quot;N_A&quot;),times=c(4,6))
+plot_df&lt;- data.frame(Names, MF, Condition) 
 
-#getting-started img {
-  margin-right: 10px;
-}
-
-</style>
-<div class="row" style="padding-top: 30px;">
-<div class="col-sm-6">
-<h1 id="marsha-learns-r"><strong>Marsha Learns R</strong></h1>
-<p>Here’s my example of making a change and adding it to the live website</p>
-<h2 id="how-to-use">How to use</h2>
-<ol style="list-style-type: decimal">
-<li><p>fork the repo for this website and follow instructions on read me to get set up. <a href="https://github.com/CrumpLab/LabJournalWebsite" class="uri">https://github.com/CrumpLab/LabJournalWebsite</a></p></li>
-<li><p>Blog/journal what you are doing in R, by editing the Journal.Rmd. See the <a href="https://crumplab.github.io/LabJournalWebsite/Journal.html">Journal page</a> for an example of what to do to get started learning R.</p></li>
-<li><p>See the <a href="https://crumplab.github.io/LabJournalWebsite/Links.html">links page</a> for lots of helpful links on learning R.</p></li>
-<li><p>Change everything to make it your own.</p></li>
-</ol>
+library(ggplot2)
+ggplot(plot_df, aes(x=Condition, y=MF, group=Names, 
+                    linetype=Aversity))+ 
+  geom_line()+
+  geom_text(label=Names)+
+  ggtitle(&quot;Mean Risky Choices in Social and Nonsocial Conditions&quot;)+
+  theme_classic()+
+    theme(plot.title=element_text(hjust=0.5))</code></pre>
+<p><img src="Graphs_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 </div>
-<div class="col-sm-6">
-<h3 id="crump-lab-human-cognition-and-performance"><a href="https://crumplab.github.io">Crump Lab: Human Cognition and Performance</a></h3>
-<p><a href = "https://crumplab.github.io"> <img src="images/logo.png" /> </a></p>
+<div id="bar-graph" class="section level2">
+<h2>Bar Graph</h2>
+<pre class="r"><code>occupation &lt;- rep(as.factor(c(&quot;Doctor&quot;,&quot;Butcher&quot;,&quot;Firefighter&quot;,&quot;Construction Worker&quot;)),each=3)
+occupation &lt;- factor(occupation,levels=occupation[c(1,4,7,10)])
+Likelihood &lt;- rep(c(&quot;Woman More Likely&quot;, &quot;Equally Likely&quot;, &quot;Man More Likely&quot;),times=4)
+Likelihood &lt;- factor(Likelihood,levels=Likelihood[c(1,2,3)])
+
+means &lt;- c(0,92,8,3,65,32,1,60,39,3,58,39)
+means_df &lt;- data.frame(occupation,Likelihood,means)
+
+library(ggplot2)
+ggplot(means_df, aes(x=occupation, y=means, group=Likelihood, fill=Likelihood))+
+  geom_bar(stat=&quot;identity&quot;)+
+  scale_fill_manual(values=c(&quot;#E37B71&quot;,&quot;#58AD58&quot;,&quot;#7595C7&quot;))+
+  scale_x_discrete(breaks=c(&quot;Doctor&quot;,
+                            &quot;Butcher&quot;,
+                            &quot;Firefighter&quot;,
+                            &quot;Construction Worker&quot;),
+                  labels=c(&quot;Doctor\nStudy 1\nN = 199&quot;,
+                            &quot;Butcher\nStudy 2\nn = 200&quot;,
+                            &quot;Firefighter\nStudy 2\nn = 200&quot;,
+                            &quot;Construction Worker\nStudy 2\nn = 205&quot;))+
+  scale_y_continuous(breaks=c(seq(0, 100, 10)),
+                     labels=c(&quot;0%&quot;,&quot;10%&quot;,&quot;20%&quot;,&quot;30%&quot;,&quot;40%&quot;,&quot;50%&quot;,&quot;60%&quot;,&quot;70%&quot;,&quot;80%&quot;,&quot;90%&quot;,&quot;100%&quot;),
+                     limits=c(0,100),
+                     expand = c(0, 0))+
+  theme_classic(base_size=12)+
+  labs(x=&quot; &quot;, y=&quot;Percentage of Participants&quot;)</code></pre>
+<p><img src="Graphs_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="bar-graph-with-error-bars" class="section level2">
+<h2>Bar Graph with Error Bars</h2>
+<pre class="r"><code>Group &lt;- rep(c(&quot;Prior&quot;,&quot;Model Posterior&quot;,&quot;Reported Posterior&quot;),times=2)
+Group &lt;- factor(Group, levels=Group[c(1,2,3)])
+group2 &lt;- rep(factor(c(&quot;Group 1&quot;,&quot;Group 2&quot;)),each=3)
+scores &lt;- c(68,89,87,30,70,77)
+SE &lt;- rep(4,6)
+new_df &lt;- data.frame(Group,group2,scores,SE)
+
+library(ggplot2)
+ggplot(new_df, aes(x=group2, y=scores, fill=Group))+
+  geom_bar(stat=&quot;identity&quot;,position=&quot;dodge&quot;)+
+  geom_errorbar(aes(ymin=scores-SE,
+                    ymax=scores+SE),
+                position=position_dodge(width=0.9),
+                width=.2,
+                color=&quot;black&quot;)+
+  labs(x=&quot; &quot;,y=&quot;P(Target=Doctor&quot;)+
+  theme_classic(base_size=12)</code></pre>
+<p><img src="Graphs_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 
 
 
+</div>
+</div>
 
 </div>
 
