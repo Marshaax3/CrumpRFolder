@@ -15,4 +15,161 @@ knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
 ```
 
 
-hello
+##Functions 
+
+
+
+###General 
+
+1. help(topic) 
+   Opens up the topic in the R-help tab and describes the functions and the arguments used for it 
+```{r}
+help("mode")
+```
+  
+2. ?topic 
+   This function does the same as help(topic): opens the R-help tab and describes the functions and the arguments used for it 
+```{r}
+?mean
+```
+   
+3. ls() 
+   Lists what objects are currently in your R environment 
+```{r}
+ls()
+```
+  
+4. dir() 
+   Lists the names of each file in your R project 
+```{r}
+dir()
+```
+   
+5. list.files() 
+   This function does the same as dir(): lists the names of each file in your R project 
+```{r}
+list.files()
+```
+   
+###Input and Output 
+
+1. save()
+   Saves an R object to a specific file 
+```{r}
+a <- 1
+save("a", file="file1.txt")
+```
+   
+2. load() 
+   Loads saved data 
+```{r}
+load(file="file1.txt")
+```
+   
+3. data() 
+   Loads specific data 
+```{r}
+data("NationalCensus")
+```
+   
+4. library() 
+   Loads a library or a package into R 
+```{r}
+library(psych)
+```
+   
+5. read.table()
+   Reads a table and produces the data frame 
+```{r}
+read.table(file="file1.txt")
+```
+   
+6. read.csv() 
+   This function is the same as read.table(): It reads a table and produces the data frame 
+```{r}
+read.csv(file="file1.txt")
+```
+   
+7. scan()
+   Reads data into a vector from a console or file 
+```{r}
+scan(file="file1.txt")
+```
+   
+8. print()
+   Prints the contents 
+```{r}
+print("class")
+```
+   
+9. cat()
+   Concatenates the data and prints the contents 
+```{r}
+cat("class","assignment")
+```
+
+10. write.table() 
+    Converts the contents to a data frame and prints it 
+```{r}
+write.table(x, file="file1.txt")
+```
+    
+### Data Creation 
+
+1. c() 
+   Combines data into a vector 
+```{r}
+c(1,2,3)
+```
+   
+2. from:to (where from and to are replaced with numbers, e.g. 1:10) 
+   Lists all numbers in between the given numbers 
+```{r}
+1:10
+```
+   
+3. seq()
+   Lists numbers from the first argument to the second argument, adding the third argument to the first argument until the third argument is reached.
+```{r}
+seq(1, 10, 3)
+```
+
+4. rep() 
+   Replicates the values in the first argument for the amount of times indicated in the second argument 
+```{r}
+rep(4,8)
+```
+   
+5. data.frame()
+   Creates data frames 
+```{r}
+data.frame()
+```
+   
+6. list() 
+   Checks for different kinds of lists (generic and dotted pairs) in R 
+```{r}
+lists()
+```
+   
+7. matrix() 
+   Creates a matrix 
+```{r}
+x <- (1:5)
+matrix(x)
+```
+   
+8. factor() 
+   
+   
+   
+   
+   
+   
+
+```{r}
+?factor
+```
+
+
+

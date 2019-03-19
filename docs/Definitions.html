@@ -408,7 +408,158 @@ div.tocify {
 </div>
 
 
-<p>hello</p>
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="general" class="section level3">
+<h3>General</h3>
+<ol style="list-style-type: decimal">
+<li>help(topic) Opens up the topic in the R-help tab and describes the functions and the arguments used for it</li>
+</ol>
+<pre class="r"><code>help(&quot;mode&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>?topic This function does the same as help(topic): opens the R-help tab and describes the functions and the arguments used for it</li>
+</ol>
+<pre class="r"><code>?mean</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>ls() Lists what objects are currently in your R environment</li>
+</ol>
+<pre class="r"><code>ls()</code></pre>
+<pre><code>## character(0)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>dir() Lists the names of each file in your R project</li>
+</ol>
+<pre class="r"><code>dir()</code></pre>
+<pre><code>##  [1] &quot;_site.yml&quot;               &quot;Definitions.Rmd&quot;        
+##  [3] &quot;docs&quot;                    &quot;Graphs.Rmd&quot;             
+##  [5] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [7] &quot;Journal_cache&quot;           &quot;Journal_files&quot;          
+##  [9] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
+## [11] &quot;RBasics_cache&quot;           &quot;RBasics.Rmd&quot;            
+## [13] &quot;README.md&quot;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>list.files() This function does the same as dir(): lists the names of each file in your R project</li>
+</ol>
+<pre class="r"><code>list.files()</code></pre>
+<pre><code>##  [1] &quot;_site.yml&quot;               &quot;Definitions.Rmd&quot;        
+##  [3] &quot;docs&quot;                    &quot;Graphs.Rmd&quot;             
+##  [5] &quot;images&quot;                  &quot;index.Rmd&quot;              
+##  [7] &quot;Journal_cache&quot;           &quot;Journal_files&quot;          
+##  [9] &quot;LabJournalWebsite.Rproj&quot; &quot;Links.Rmd&quot;              
+## [11] &quot;RBasics_cache&quot;           &quot;RBasics.Rmd&quot;            
+## [13] &quot;README.md&quot;</code></pre>
+</div>
+<div id="input-and-output" class="section level3">
+<h3>Input and Output</h3>
+<ol style="list-style-type: decimal">
+<li>save() Saves an R object to a specific file</li>
+</ol>
+<pre class="r"><code>a &lt;- 1
+save(&quot;a&quot;, file=&quot;file1.txt&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>load() Loads saved data</li>
+</ol>
+<pre class="r"><code>load(file=&quot;file1.txt&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>data() Loads specific data</li>
+</ol>
+<pre class="r"><code>data(&quot;NationalCensus&quot;)</code></pre>
+<pre><code>## Warning in data(&quot;NationalCensus&quot;): data set &#39;NationalCensus&#39; not found</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>library() Loads a library or a package into R</li>
+</ol>
+<pre class="r"><code>library(psych)</code></pre>
+<pre><code>## Error in library(psych): there is no package called &#39;psych&#39;</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>read.table() Reads a table and produces the data frame</li>
+</ol>
+<pre class="r"><code>read.table(file=&quot;file1.txt&quot;)</code></pre>
+<pre><code>## Warning in read.table(file = &quot;file1.txt&quot;): line 3 appears to contain
+## embedded nulls</code></pre>
+<pre><code>## Warning in read.table(file = &quot;file1.txt&quot;): incomplete final line found by
+## readTableHeader on &#39;file1.txt&#39;</code></pre>
+<pre><code>##     V1
+## 1 RDX2
+## 2    X</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>read.csv() This function is the same as read.table(): It reads a table and produces the data frame</li>
+</ol>
+<pre class="r"><code>read.csv(file=&quot;file1.txt&quot;)</code></pre>
+<pre><code>## Warning in read.table(file = file, header = header, sep = sep, quote =
+## quote, : line 3 appears to contain embedded nulls</code></pre>
+<pre><code>## Warning in read.table(file = file, header = header, sep = sep, quote =
+## quote, : incomplete final line found by readTableHeader on &#39;file1.txt&#39;</code></pre>
+<pre><code>##   RDX2
+## 1    X</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>scan() Reads data into a vector from a console or file</li>
+</ol>
+<pre class="r"><code>scan(file=&quot;file1.txt&quot;)</code></pre>
+<pre><code>## Error in scan(file = &quot;file1.txt&quot;): scan() expected &#39;a real&#39;, got &#39;RDX2&#39;</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>print() Prints the contents</li>
+</ol>
+<pre class="r"><code>print(&quot;class&quot;)</code></pre>
+<pre><code>## [1] &quot;class&quot;</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>cat() Concatenates the data and prints the contents</li>
+</ol>
+<pre class="r"><code>cat(&quot;class&quot;,&quot;assignment&quot;)</code></pre>
+<pre><code>## class assignment</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li>write.table() Converts the contents to a data frame and prints it</li>
+</ol>
+<pre class="r"><code>write.table(x, file=&quot;file1.txt&quot;)</code></pre>
+<pre><code>## Error in is.data.frame(x): object &#39;x&#39; not found</code></pre>
+</div>
+<div id="data-creation" class="section level3">
+<h3>Data Creation</h3>
+<ol style="list-style-type: decimal">
+<li>c() Combines data into a vector</li>
+</ol>
+<pre class="r"><code>c(1,2,3)</code></pre>
+<pre><code>## [1] 1 2 3</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>from:to (where from and to are replaced with numbers, e.g. 1:10) Lists all numbers in between the given numbers</li>
+</ol>
+<pre class="r"><code>1:10</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>seq() Lists numbers from the first argument to the second argument, adding the third argument to the first argument until the third argument is reached.</li>
+</ol>
+<pre class="r"><code>seq(1, 10, 3)</code></pre>
+<pre><code>## [1]  1  4  7 10</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>rep() Replicates the values in the first argument for the amount of times indicated in the second argument</li>
+</ol>
+<pre class="r"><code>rep(4,8)</code></pre>
+<pre><code>## [1] 4 4 4 4 4 4 4 4</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>data.frame() Creates data frames</li>
+</ol>
+<pre class="r"><code>data.frame()</code></pre>
+<pre><code>## data frame with 0 columns and 0 rows</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>list() Checks for different kinds of lists (generic and dotted pairs) in R</li>
+</ol>
+<pre class="r"><code>lists()</code></pre>
+<pre><code>## Error in lists(): could not find function &quot;lists&quot;</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>matrix() Creates a matrix</li>
+</ol>
+<pre class="r"><code>x &lt;- (1:5)
+matrix(x)</code></pre>
+<pre><code>##      [,1]
+## [1,]    1
+## [2,]    2
+## [3,]    3
+## [4,]    4
+## [5,]    5</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>factor()</li>
+</ol>
+<pre class="r"><code>?factor</code></pre>
+</div>
+</div>
 
 
 
