@@ -1,0 +1,277 @@
+---
+title: "R Basics"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    collapsed: false
+    number_sections: false
+    toc_depth: 1
+    #code_folding: hide
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(message=FALSE,warning=FALSE, cache=TRUE)
+```
+
+### Problem 1 
+
+Do simple math with numbers, addition, subtraction, multiplication, division 
+
+```{r}
+
+
+
+1+1
+3-2
+4*6
+5/7
+
+
+```
+### Problem 2
+
+Put numbers into variables, do simple math on the variables 
+
+```{r}
+
+marsha <- 1
+abc <- 8745416786468465646
+
+marsha + abc 
+
+
+cats <- 476 
+dogs <- 8.3 
+
+cats / dogs 
+
+class <- 33 
+teacher <- 87 
+
+class - teacher 
+
+high <- 10246839295 
+low <- 376782853 
+
+high * low 
+```
+
+### Problem 3 
+
+Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.
+
+```{r}
+for(i in 1:100){ 
+  print(i)
+} 
+
+seq(1,100)
+
+```
+
+### Problem 4 
+
+Find the sum of all the integer numbers from 1 to 100. 
+
+```{r}
+
+sum(seq(1,100))
+
+```
+
+How would you do this without using the sum function? For example, how could you use a for loop to accomplish this task?
+
+```{r}
+totalsum<-0
+for(i in 1:100){
+  totalsum<-c(totalsum+i)
+}
+print(totalsum)
+```
+
+### Problem 5 
+
+Write a function to find the sum of all integers between any two values. 
+
+```{r}
+
+x<-c(5:250)
+
+SumFun<-function(y){
+  sum<-0
+  for(i in 1:length(y)){
+    sum=sum+y[i]
+  }
+print(sum)
+}
+SumFun(x)
+```
+
+### Problem 6 
+
+List all of the odd numbers from 1 to 100. 
+
+```{r}
+
+AllNumbers<-c()
+for(i in 1:100){
+  AllNumbers<-c(AllNumbers,i)
+}
+OddNumbers<-c()
+for (x in AllNumbers)
+  if(x%%2 ==1){
+    OddNumbers<-c(OddNumbers,x)
+    
+  }
+print(OddNumbers)
+```
+
+### Problem 7 
+
+List all of the prime numbers from 1 to 1000. 
+
+```{r}
+
+n <-c(1:1000)
+  PrimeNumbers<-function(n){
+    if(n==2){
+      TRUE
+    } else if (any(n%%2:(n-1)==0)){
+      FALSE
+    } else {
+      TRUE
+    }
+  }
+PrimeNumbers <- Vectorize(PrimeNumbers)
+
+n[PrimeNumbers(n)]
+```
+
+### Problem 8 
+
+Generate 100 random numbers 
+
+```{r}
+
+runif(100) 
+
+```
+
+### Problem 9 
+
+Generate 100 random numbers within a specific range 
+
+```{r}
+
+runif(100, min=0, max=650) 
+
+```
+
+### Problem 10 
+
+Write your own functions to give descriptive statistics for a vector variable storing multiple numbers. Write functions for the following without using R intrinsics: mean, mode, median, range, standard deviation 
+
+Mean:
+
+```{r}
+
+meanA <- function(m){ 
+  AllSum<-0
+  for(i in m){
+    AllSum <- AllSum+i
+  }
+return<-c(AllSum/length(m))   
+}
+mean_numbers<-c(1,5,10,15,20)
+
+print(meanA(mean_numbers)) 
+```
+
+Mode: 
+
+```{r}
+
+
+```
+
+Median: 
+
+```{r}
+
+```
+
+Range: 
+
+```{r}
+
+```
+
+Standard deviaton: 
+
+```{r}
+
+```
+
+### Problem 11 
+
+Count the number of characters in a string variable 
+
+```{r}
+
+string_a <- "numberofcharactersinastring"
+strsplit(string_a,split="")
+```
+
+### Problem 12 
+
+Count the number of words in a string variable 
+
+```{r}
+string_b <- "here is my example sentence that needs to be split up"
+strsplit(string_b,split=" ")
+```
+
+### Problem 13 
+
+Count the number of sentences in a string variable 
+
+```{r}
+
+string_c <- "here is my example sentence . it needs to be split up . i do not know what to write . here is the fourth sentence just because"
+
+strsplit(string_c,split=" . ")
+```
+
+### Problem 14 
+
+Count the number of times a specific character occurs in a string variable 
+```{r}
+
+string_d <-c(1,4,8,6,3,2,4,6,8,9,6,2,3,6,8,9,5,3,2,3,5,6)
+table(string_d)
+```
+
+How would you do this without the table function? 
+
+```{r}
+
+```
+
+### Problem 15 
+
+Do a logical test to see if one word is found within the text of another string variable 
+
+```{r}
+
+a <- "we"
+
+b <- "we turn on the computer"
+
+
+# is a in b? 
+a%in%b
+
+
+```
+
