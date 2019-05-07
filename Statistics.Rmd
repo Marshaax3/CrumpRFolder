@@ -25,7 +25,7 @@ If you take two random samples from the same distribution they can be different 
 4. Assume an alpha criteria of p<.05 for a directional test.  What is the critical value for a positive mean difference? In other words, how large must a positive mean difference be in order to occur less than 5% of the time under the null?
 5. Assume an alpha criteria of p<.05 for a non-directional test. What is the critical value for the absolute value of the mean difference. In other words, how large must the absolute value of the mean difference be in order to occur less than 5% of the time under the null?
 
-```{r}
+```{r eval=false}
 null <- replicate(10000,mean(rnorm(10,0,1)-mean(rnorm(10,0,1))))
 #directional positive
 sorted_null <- sort(null)
@@ -48,7 +48,7 @@ Show that the properties of a simulated t-distribution are the same as the prope
 
 4. Compare the two sets of probabilities to show that the difference is small. What happens to the difference if the simulation is repeated fewer times (e.g., 100) vs. more times (e.g., 100,000)
 
-```{r}
+```{r eval=false}
 t_dist <- replicate(10000,t.test(rnorm(10,0,1))$statistic)
 ts <- c(.5,1,2,2.5)
 sim_t <- c()
@@ -70,7 +70,7 @@ Sample A and Sample B both have 10 observations randomly sampled from the same n
 
 3. Find the critical value when the sample-size is increased to 100
 
-```{r}
+```{r eval=false}
 null <- replicate(10000,cor(rnorm(10,0,1),rnorm(10,0,1)))
 sorted_null <- sort(abs(null))
 sorted_null[9500]
@@ -83,7 +83,7 @@ sorted_null[9500]
 
 There are three groups of different subjects. The means for each subject in each group are below. Calculate the F-value for the main effect of group.
 
-```{r}
+```{r eval=false}
 A <- c(1,2,3,4)
 B <- c(3,4,5,6)
 C <- c(5,6,7,8)
@@ -99,7 +99,7 @@ Assume that there are three groups of different subjects. Each group has four su
 
 3. Compare your answer from above to the answer obtained using `qf`, that can compute the critical value directly.
 
-```{r}
+```{r eval=false}
 sim_F <- function(){
 A <- rnorm(4,0,1)
 B <- rnorm(4,0,1)

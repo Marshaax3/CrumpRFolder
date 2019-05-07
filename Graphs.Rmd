@@ -19,7 +19,7 @@ Reproducing figures presented in journal articles
 
 ## Line Graph 
 
-```{r}
+```{r eval=F}
 Names <- rep(c("Dara","Azalea","Barbi","Rowena","Fiona"),each=2)
 MF <- c(62,58,55,25,43,2,40,6,12,0) 
 Condition <- rep(c("Social","Nonsocial"),5)
@@ -39,7 +39,7 @@ ggplot(plot_df, aes(x=Condition, y=MF, group=Names,
 
 ## Bar Graph 
 
-```{r}
+```{r eval=F}
 occupation <- rep(as.factor(c("Doctor","Butcher","Firefighter","Construction Worker")),each=3)
 occupation <- factor(occupation,levels=occupation[c(1,4,7,10)])
 Likelihood <- rep(c("Woman More Likely", "Equally Likely", "Man More Likely"),times=4)
@@ -71,7 +71,7 @@ ggplot(means_df, aes(x=occupation, y=means, group=Likelihood, fill=Likelihood))+
 
 ## Bar Graph with Error Bars 
 
-```{r}
+```{r eval=F}
 Group <- rep(c("Prior","Model Posterior","Reported Posterior"),times=2)
 Group <- factor(Group, levels=Group[c(1,2,3)])
 group2 <- rep(factor(c("Group 1","Group 2")),each=3)

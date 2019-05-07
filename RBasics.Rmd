@@ -18,7 +18,7 @@ knitr::opts_chunk$set(message=FALSE,warning=FALSE,cache=TRUE)
 
 Do simple math with numbers, addition, subtraction, multiplication, division 
 
-```{r}
+```{r eval=false}
 
 
 
@@ -33,7 +33,7 @@ Do simple math with numbers, addition, subtraction, multiplication, division
 
 Put numbers into variables, do simple math on the variables 
 
-```{r}
+```{r eval=false}
 
 marsha <- 1
 abc <- 8745416786468465646
@@ -61,7 +61,7 @@ high * low
 
 Write code that will place the numbers 1 to 100 separately into a variable using for loop. Then, again using the seq function.
 
-```{r}
+```{r eval=false}
 for(i in 1:100){ 
   return(i)
 } 
@@ -74,7 +74,7 @@ seq(1,100)
 
 Find the sum of all the integer numbers from 1 to 100. 
 
-```{r}
+```{r eval=false}
 
 sum(seq(1,100))
 
@@ -82,7 +82,7 @@ sum(seq(1,100))
 
 How would you do this without using the sum function? For example, how could you use a for loop to accomplish this task?
 
-```{r}
+```{r eval=false}
 Numbers_List <-seq(1:100)
 
 for (i in 1:length(Numbers_List)){
@@ -97,7 +97,7 @@ sum(Numbers_List)
 
 Write a function to find the sum of all integers between any two values. 
 
-```{r}
+```{r eval=false}
 
 x<-c(5:250)
 
@@ -115,7 +115,7 @@ SumFun(x)
 
 List all of the odd numbers from 1 to 100. 
 
-```{r}
+```{r eval=false}
 
 AllNumbers<-c()
 for(i in 1:100){
@@ -134,7 +134,7 @@ print(OddNumbers)
 
 List all of the prime numbers from 1 to 1000. 
 
-```{r}
+```{r eval=false}
 
 n <-c(1:1000)
   PrimeNumbers<-function(n){
@@ -155,7 +155,7 @@ n[PrimeNumbers(n)]
 
 Generate 100 random numbers 
 
-```{r}
+```{r eval=false}
 
 runif(100) 
 
@@ -165,7 +165,7 @@ runif(100)
 
 Generate 100 random numbers within a specific range 
 
-```{r}
+```{r eval=false}
 
 runif(100, min=0, max=650) 
 
@@ -177,7 +177,7 @@ Write your own functions to give descriptive statistics for a vector variable st
 
 Mean:
 
-```{r}
+```{r eval=false}
 
 meanA <- function(m){ 
   AllSum<-0
@@ -193,7 +193,7 @@ print(meanA(mean_numbers))
 
 Mode: 
 
-```{r}
+```{r eval=false}
 Y<-c(3,4,6,12,4,67,95,26,4,4,67,9,70,25)
 table(Y)
 C=table(Y)
@@ -204,7 +204,7 @@ names(which.max(C))
 
 Median: 
 
-```{r}
+```{r eval=false}
 Y<-c(3,4,6,12,25,26,67,70,95)
 
 (median(Y))
@@ -212,7 +212,7 @@ Y<-c(3,4,6,12,25,26,67,70,95)
 
 Range: 
 
-```{r}
+```{r eval=false}
 Y<-c(3,4,6,12,25,26,67,70,95)
 
 (max(Y)-min(Y))
@@ -228,7 +228,7 @@ Standard deviaton:
 
 Count the number of characters in a string variable 
 
-```{r}
+```{r eval=false}
 
 string_a <- "numberofcharactersinastring"
 strsplit(string_a,split="")
@@ -238,7 +238,7 @@ strsplit(string_a,split="")
 
 Count the number of words in a string variable 
 
-```{r}
+```{r eval=false}
 string_b <- "here is my example sentence that needs to be split up"
 strsplit(string_b,split=" ")
 ```
@@ -247,7 +247,7 @@ strsplit(string_b,split=" ")
 
 Count the number of sentences in a string variable 
 
-```{r}
+```{r eval=false}
 
 string_c <- "here is my example sentence . it needs to be split up . i do not know what to write . here is the fourth sentence just because"
 
@@ -257,7 +257,7 @@ strsplit(string_c,split=" . ")
 ### Problem 14 
 
 Count the number of times a specific character occurs in a string variable 
-```{r}
+```{r eval=false}
 
 string_d <-c(1,4,8,6,3,2,4,6,8,9,6,2,3,6,8,9,5,3,2,3,5,6)
 table(string_d)
@@ -265,7 +265,7 @@ table(string_d)
 
 How would you do this without the table function? 
 
-```{r}
+```{r eval=false}
 string_d <- "1486324689623689532356"
 (strsplit(string_d,""))
 
@@ -275,7 +275,7 @@ string_d <- "1486324689623689532356"
 
 Do a logical test to see if one word is found within the text of another string variable 
 
-```{r}
+```{r eval=false}
 
 a <- "we"
 
@@ -292,7 +292,7 @@ grepl(a,b)
 
 Put the current computer time in milliseconds into a variable 
 
-```{r}
+```{r eval=false}
 print(as.numeric(Sys.time())*1000, digits=15)
 ```
 
@@ -314,7 +314,7 @@ end_time - start_time
 
 Read a .txt file or .csv file into a variable 
 
-```{r}
+```{r eval=false}
 
 ```
 
@@ -322,7 +322,7 @@ Read a .txt file or .csv file into a variable
 
 Output the contents of a variable to a .txt file 
 
-```{r}
+```{r eval=false}
 
 ```
 
@@ -330,7 +330,7 @@ Output the contents of a variable to a .txt file
 
 Create a variable that stores a 20x20 matrix of random numbers 
 
-```{r}
+```{r eval=false}
 
 ```
 
@@ -338,7 +338,7 @@ Create a variable that stores a 20x20 matrix of random numbers
 
 Output any matrix to a txt file using commas or tabs to separate column values, and new lines to separate row values 
 
-```{r}
+```{r eval=false}
 
 ```
 

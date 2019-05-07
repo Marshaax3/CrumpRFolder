@@ -23,31 +23,31 @@ knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
 
 1. help(topic) 
    Opens up the topic in the R-help tab and describes the functions and the arguments used for it 
-```{r}
+```{r eval=false}
 help("mode")
 ```
   
 2. ?topic 
    This function does the same as help(topic): opens the R-help tab and describes the functions and the arguments used for it 
-```{r}
+```{r eval=false}
 ?mean
 ```
    
 3. ls() 
    Lists what objects are currently in your R environment 
-```{r}
+```{r eval=false}
 ls()
 ```
   
 4. dir() 
    Lists the names of each file in your R project 
-```{r}
+```{r eval=false}
 dir()
 ```
    
 5. list.files() 
    This function does the same as dir(): lists the names of each file in your R project 
-```{r}
+```{r eval=false}
 list.files()
 ```
    
@@ -55,62 +55,62 @@ list.files()
 
 1. save()
    Saves an R object to a specific file 
-```{r}
+```{r eval=false}
 a <- 1
 save("a", file="file1.txt")
 ```
    
 2. load() 
    Loads saved data 
-```{r}
+```{r eval=false}
 load(file="file1.txt")
 ```
    
 3. data() 
    Loads specific data 
-```{r}
+```{r eval=false}
 data("NationalCensus")
 ```
    
 4. library() 
    Loads a library or a package into R 
-```{r}
+```{r eval=false}
 library(psych)
 ```
    
 5. read.table()
    Reads a table and produces the data frame 
-```{r}
+```{r eval=false}
 read.table(file="file1.txt")
 ```
    
 6. read.csv() 
    This function is the same as read.table(): It reads a table and produces the data frame 
-```{r}
+```{r eval=false}
 read.csv(file="file1.txt")
 ```
    
 7. scan()
    Reads data into a vector from a console or file 
-```{r}
+```{r eval=false}
 scan(file="file1.txt")
 ```
    
 8. print()
    Prints the contents 
-```{r}
+```{r eval=false}
 print("class")
 ```
    
 9. cat()
    Concatenates the data and prints the contents 
-```{r}
+```{r eval=false}
 cat("class","assignment")
 ```
 
 10. write.table() 
     Converts the contents to a data frame and prints it 
-```{r}
+```{r eval=false}
 write.table(x, file="file1.txt")
 ```
     
@@ -118,43 +118,43 @@ write.table(x, file="file1.txt")
 
 1. c() 
    Combines data into a vector 
-```{r}
+```{r eval=false}
 c(1,2,3)
 ```
    
 2. from:to (where from and to are replaced with numbers, e.g. 1:10) 
    Lists all numbers in between the given numbers 
-```{r}
+```{r eval=false}
 1:10
 ```
    
 3. seq()
    Lists numbers from the first argument to the second argument, adding the third argument to the first argument until the third argument is reached.
-```{r}
+```{r eval=false}
 seq(1, 10, 3)
 ```
 
 4. rep() 
    Replicates the values in the first argument for the amount of times indicated in the second argument 
-```{r}
+```{r eval=false}
 rep(4,8)
 ```
    
 5. data.frame()
    Creates data frames 
-```{r}
+```{r eval=false}
 data.frame()
 ```
    
 6. list() 
    Checks for different kinds of lists (generic and dotted pairs) in R 
-```{r}
+```{r eval=false}
 lists()
 ```
    
 7. matrix() 
    Creates a matrix 
-```{r}
+```{r eval=false}
 x <- (1:5)
 matrix(x)
 ```
@@ -169,14 +169,14 @@ matrix(x)
 
 4. x[-(1:n)] elements from n+1 to the end 
    Returns values of x besides the values in indices 1 to n 
-```{r}
+```{r eval=false}
 x <- 1:10
 x[-(1:5)]
 ```
    
 5. x[c(1,4,2)] specific elements 
    Returns the values of x in the indices of 1, 4, and 2 
-```{r}
+```{r eval=false}
 x <- 1:10
 x[c(1,4,2)]
 ```
@@ -185,21 +185,21 @@ x[c(1,4,2)]
    
 7. x[x>3] all elements greater than 3 
    Returns the values of x that are greater than 3 
-```{r}
+```{r eval=false}
 x <- 1:10
 x[x>3]
 ```
    
 8. x[x > 3 & x < 5] all elements between 3 and 5 
    Returns the va;ues of x that are greater than 3 and less than 5 
-```{r}
+```{r eval=false}
 x <- 1:10
 x[x>3 & x<5]
 ```
    
 9. x[x %in% c(“a”,“and”,“the”)] all elements in given set 
    Reutrns the values of x that match “a”, “and”, and “the” 
-```{r}
+```{r eval=false}
 x <- c("Here", "is", "an", "example", "of", "how", "the", "text", "will", "be", "evaluated", "and", "separated", "using", "a", "code") 
 x[x %in% c("a","and","the")]
 ```
@@ -208,14 +208,14 @@ x[x %in% c("a","and","the")]
 
 1. x[n] list with elements n 
    Returns the nth object in the list, in list format 
-```{r}
+```{r eval=false}
 x <- list("a" <- c(1,10), "b" <- c(2,20), "c" <- c(3,30))
 x[2]
 ```
 
 2. x[[n]] nt h element of the list
    Returns the nth object in the list 
-```{r}
+```{r eval=false}
 x <- list("a" <- c(1,10), "b" <- c(2,20), "c" <- c(3,30))
 x[[2]]
 ```
@@ -228,28 +228,28 @@ x[[2]]
 
 1. x[i,j] element at row i, column j
    Returns the value of x at row i and column j  
-```{r}
+```{r eval=false}
 x <- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
 x[2,2]
 ```
    
 2. x[i,] row i
    Returns all values of x in row i 
-```{r}
+```{r eval=false}
 x <- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
 x[2,]
 ```
    
 3. x[,j] column j
    Returns all values of x in column j 
-```{r}
+```{r eval=false}
 x <- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
 x[,2]
 ```
    
 4. x[,c(1,3)] columns 1 and 3
    Return all values of x in columns 1 and 3 (regardless of rows) 
-```{r}
+```{r eval=false}
 x <- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
 x[,c(1,3)]
 ```
