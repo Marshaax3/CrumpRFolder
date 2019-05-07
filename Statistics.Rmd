@@ -114,3 +114,6 @@ sim_fs <- replicate(1000,sim_F())
 sort_fs<-sort(sim_fs)
 sort_fs[950]
 qf(.05,2,9, lower.tail=FALSE)
+
+```
+

@@ -11,7 +11,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo=TRUE, messages=TRUE, error=TRUE)
+knitr::opts_chunk$set(echo=TRUE, messages=FALSE, error=FALSE)
 ```
 
 ## Flanker task
@@ -35,19 +35,14 @@ library(data.table)
 library(dplyr)
 library(ggplot2)
 
-
-# get the file names
 file_names <- list.files(path="FlankerData")
 
-# create headers for each column
 the_headers <- c("stimulus","congruency","proportion",
-                 "block","condition","dualtask","unknown",
-                 "stimulus_onset","response_time","response","subject")
-# Load data
-# create empty dataframe
+              "block","condition","dualtask","unknown",
+                "stimulus_onset","response_time","response","subject")
+
 all_data<-data.frame()
 
-# loop to add each file to the dataframe
 for(i in file_names){
   one_subject <- fread(paste("FlankerData/",i, sep=""))
   names(one_subject) <- the_headers
