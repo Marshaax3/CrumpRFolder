@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Definitions</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Marsha Learns R</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="RBasics.html">R Basics</a>
+</li>
+<li>
+  <a href="Definitions.html">Definitions</a>
+</li>
+<li>
+  <a href="Graphs.html">Graphs</a>
+</li>
+<li>
+  <a href="DataWrangling.html">Data Wrangling</a>
+</li>
+<li>
+  <a href="Statistics.html">Statistics</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Definitions</h1>
+
+</div>
+
+
+<div id="functions" class="section level2">
+<h2>Functions</h2>
+<div id="general" class="section level3">
+<h3>General</h3>
+<ol style="list-style-type: decimal">
+<li>help(topic) Opens up the topic in the R-help tab and describes the functions and the arguments used for it</li>
+</ol>
+<pre class="r"><code>help(&quot;mode&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>?topic This function does the same as help(topic): opens the R-help tab and describes the functions and the arguments used for it</li>
+</ol>
+<pre class="r"><code>?mean</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>ls() Lists what objects are currently in your R environment</li>
+</ol>
+<pre class="r"><code>ls()</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>dir() Lists the names of each file in your R project</li>
+</ol>
+<pre class="r"><code>dir()</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>list.files() This function does the same as dir(): lists the names of each file in your R project</li>
+</ol>
+<pre class="r"><code>list.files()</code></pre>
+</div>
+<div id="input-and-output" class="section level3">
+<h3>Input and Output</h3>
+<ol style="list-style-type: decimal">
+<li>save() Saves an R object to a specific file</li>
+</ol>
+<pre class="r"><code>a &lt;- 1
+save(&quot;a&quot;, file=&quot;file1.txt&quot;)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>load() Loads saved data</li>
+</ol>
+<pre class="r"><code>load(file=&quot;file1.txt&quot;)</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>data() Loads specific data</li>
+</ol>
+<pre class="r"><code>data(&quot;NationalCensus&quot;)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>library() Loads a library or a package into R</li>
+</ol>
+<pre class="r"><code>library(psych)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>read.table() Reads a table and produces the data frame</li>
+</ol>
+<pre class="r"><code>read.table(file=&quot;file1.txt&quot;)</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>read.csv() This function is the same as read.table(): It reads a table and produces the data frame</li>
+</ol>
+<pre class="r"><code>read.csv(file=&quot;file1.txt&quot;)</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>scan() Reads data into a vector from a console or file</li>
+</ol>
+<pre class="r"><code>scan(file=&quot;file1.txt&quot;)</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>print() Prints the contents</li>
+</ol>
+<pre class="r"><code>print(&quot;class&quot;)</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>cat() Concatenates the data and prints the contents</li>
+</ol>
+<pre class="r"><code>cat(&quot;class&quot;,&quot;assignment&quot;)</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li>write.table() Converts the contents to a data frame and prints it</li>
+</ol>
+<pre class="r"><code>write.table(x, file=&quot;file1.txt&quot;)</code></pre>
+</div>
+<div id="data-creation" class="section level3">
+<h3>Data Creation</h3>
+<ol style="list-style-type: decimal">
+<li>c() Combines data into a vector</li>
+</ol>
+<pre class="r"><code>c(1,2,3)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>from:to (where from and to are replaced with numbers, e.g. 1:10) Lists all numbers in between the given numbers</li>
+</ol>
+<pre class="r"><code>1:10</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>seq() Lists numbers from the first argument to the second argument, adding the third argument to the first argument until the third argument is reached.</li>
+</ol>
+<pre class="r"><code>seq(1, 10, 3)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>rep() Replicates the values in the first argument for the amount of times indicated in the second argument</li>
+</ol>
+<pre class="r"><code>rep(4,8)</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>data.frame() Creates data frames</li>
+</ol>
+<pre class="r"><code>data.frame()</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>list() Checks for different kinds of lists (generic and dotted pairs) in R</li>
+</ol>
+<pre class="r"><code>lists()</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li>matrix() Creates a matrix</li>
+</ol>
+<pre class="r"><code>x &lt;- (1:5)
+matrix(x)</code></pre>
+</div>
+<div id="slicing-and-extracting-data" class="section level3">
+<h3>Slicing and extracting data</h3>
+<ol style="list-style-type: decimal">
+<li><p>x[n] nth element</p></li>
+<li><p>x[-n] all but nth element</p></li>
+<li><p>x[1:n] first n elements</p></li>
+<li><p>x[-(1:n)] elements from n+1 to the end Returns values of x besides the values in indices 1 to n</p></li>
+</ol>
+<pre class="r"><code>x &lt;- 1:10
+x[-(1:5)]</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>x[c(1,4,2)] specific elements Returns the values of x in the indices of 1, 4, and 2</li>
+</ol>
+<pre class="r"><code>x &lt;- 1:10
+x[c(1,4,2)]</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><p>x[“name”] elements named “name”</p></li>
+<li><p>x[x&gt;3] all elements greater than 3 Returns the values of x that are greater than 3</p></li>
+</ol>
+<pre class="r"><code>x &lt;- 1:10
+x[x&gt;3]</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li>x[x &gt; 3 &amp; x &lt; 5] all elements between 3 and 5 Returns the va;ues of x that are greater than 3 and less than 5</li>
+</ol>
+<pre class="r"><code>x &lt;- 1:10
+x[x&gt;3 &amp; x&lt;5]</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li>x[x %in% c(“a”,“and”,“the”)] all elements in given set Reutrns the values of x that match “a”, “and”, and “the”</li>
+</ol>
+<pre class="r"><code>x &lt;- c(&quot;Here&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;how&quot;, &quot;the&quot;, &quot;text&quot;, &quot;will&quot;, &quot;be&quot;, &quot;evaluated&quot;, &quot;and&quot;, &quot;separated&quot;, &quot;using&quot;, &quot;a&quot;, &quot;code&quot;) 
+x[x %in% c(&quot;a&quot;,&quot;and&quot;,&quot;the&quot;)]</code></pre>
+</div>
+<div id="indexing-lists" class="section level3">
+<h3>Indexing lists</h3>
+<ol style="list-style-type: decimal">
+<li>x[n] list with elements n Returns the nth object in the list, in list format</li>
+</ol>
+<pre class="r"><code>x &lt;- list(&quot;a&quot; &lt;- c(1,10), &quot;b&quot; &lt;- c(2,20), &quot;c&quot; &lt;- c(3,30))
+x[2]</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>x[[n]] nt h element of the list Returns the nth object in the list</li>
+</ol>
+<pre class="r"><code>x &lt;- list(&quot;a&quot; &lt;- c(1,10), &quot;b&quot; &lt;- c(2,20), &quot;c&quot; &lt;- c(3,30))
+x[[2]]</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>x[[“name”]] element of the list named “name”</p></li>
+<li><p>x$name id.</p></li>
+</ol>
+</div>
+<div id="indexing-matrices" class="section level3">
+<h3>Indexing matrices</h3>
+<ol style="list-style-type: decimal">
+<li>x[i,j] element at row i, column j Returns the value of x at row i and column j</li>
+</ol>
+<pre class="r"><code>x &lt;- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
+x[2,2]</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>x[i,] row i Returns all values of x in row i</li>
+</ol>
+<pre class="r"><code>x &lt;- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
+x[2,]</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>x[,j] column j Returns all values of x in column j</li>
+</ol>
+<pre class="r"><code>x &lt;- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
+x[,2]</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>x[,c(1,3)] columns 1 and 3 Return all values of x in columns 1 and 3 (regardless of rows)</li>
+</ol>
+<pre class="r"><code>x &lt;- matrix(c(1,2,3,11,12,13), nrow = 2, ncol = 3, byrow = TRUE)
+x[,c(1,3)]</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>x[“name”,] row named “name”</li>
+</ol>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

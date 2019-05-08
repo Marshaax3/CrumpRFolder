@@ -10,9 +10,9 @@ navbar:
       href: Definitions.html 
     - text: "Graphs"
       href: Graphs.html
-      text: "Data Wrangling"
+    - text: "Data Wrangling"
       href: DataWrangling.html
-      text: "Statistics"
+    - text:: "Statistics"
       href: Statistics.html
     - text: "Links"
       href: Links.html
